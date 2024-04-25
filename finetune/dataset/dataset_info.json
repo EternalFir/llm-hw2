@@ -1,0 +1,11 @@
+{
+    "refined_seed_tasks": {
+      "file_name": "refined_seed_tasks.jsonl",
+      "formatting": "alpaca",
+      "columns": {
+        "prompt": "instruction",
+        "query": "input",
+        "response": "output"
+      }
+    }
+}
