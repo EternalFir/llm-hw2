@@ -24,6 +24,31 @@ bash ./fine-tuning.sh
 bash ./evaluation.sh
 ```
 
+###### Tips
+
+If you got confronted with a issue like
+
+It may be a bug in alpaca-eval, you can try fix in `alpaca_eval/src/alpaca_eval/decoders/openai.py:250:251`:
+
+The original code:
+
+```python
+for choice in choices:
+	choice["total_tokens"] = completion_batch.usage.total_tokens / len(prompt_batch)
+```
+
+Fixed code:
+
+```python
+for choice in choices:
+    if completion_batch.usage.total_tokens is None:
+    	choice["total_tokens"] = 0
+    else:
+    	choice["total_tokens"] = completion_batch.usage.total_tokens / len(prompt_batch)
+```
+
+
+
 ## Acknowledgement
 
 This project is supported by the director of CS2916 course, Prof.Pengfei Liu. Also, the work is under the help of the teacher assistant koala99.
