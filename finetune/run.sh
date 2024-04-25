@@ -1,9 +1,9 @@
 export MODEL_NAME="qwen_sft"
-export DATA_DIR="/home/eternal-fir/桌面/llm-hw2/finetune/dataset"
-export DATA_NAME="refined_seed_tasks"
-export BASE_MODEL="/home/eternal-fir/桌面/llm-hw2/qwen/Qwen1___5-0___5B" # JUST AN EXAMPLE
+export DATA_DIR="/mnt/workspace/llm-hw2/self-instruct/data/gpt3_generations/finetuning_data/"
+export DATA_NAME="all_generated_instances"
+export BASE_MODEL="/mnt/workspace/modelscope_hub/qwen/Qwen1___5-0___5B" # JUST AN EXAMPLE
 
-cd "./../LLaMA-Factory"
+cd LLaMA-Factory
 
 CUDA_VISIBLE_DEVICES=0 python3 \
     src/train_bash.py \
@@ -23,7 +23,7 @@ CUDA_VISIBLE_DEVICES=0 python3 \
     --max_grad_norm 1.0 \
     --logging_steps 1 \
     --preprocessing_num_workers 8 \
-    --flash_attn off\
+    --flash_attn auto\
     --max_steps 5000 \
     --save_steps 500 \
     --warmup_steps 100 \

@@ -1,0 +1,11 @@
+{
+    "all_generated_instances": {
+      "file_name": "all_generated_instances.jsonl",
+      "formatting": "alpaca",
+      "columns": {
+        "prompt": "instruction",
+        "query": "input",
+        "response": "output"
+      }
+    }
+}
